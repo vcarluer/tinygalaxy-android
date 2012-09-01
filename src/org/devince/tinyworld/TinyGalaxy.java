@@ -48,7 +48,7 @@ public class TinyGalaxy extends AndroidApplication implements IActivityRequestHa
 		this.layout = new RelativeLayout(this);
 		this.gameView = initializeForView(TinyWorld.get(this), config);
 		this.adView = new AdView(this, AdSize.BANNER, AdMobPublisherId);
-		this.nextAdInternal();
+		// this.nextAdInternal();
 		this.showAds(false);
 		
 		this.layout.addView(this.gameView);
