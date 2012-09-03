@@ -1,11 +1,12 @@
 
-package org.devince.tinyworld;
+package org.devince.tinygalaxy;
 
-import android.content.Context;
+import org.devince.tinyworld.IActivityRequestHandler;
+import org.devince.tinyworld.TinyWorld;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.telephony.TelephonyManager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -22,7 +23,7 @@ import com.google.ads.AdView;
 public class TinyGalaxy extends AndroidApplication implements IActivityRequestHandler {
 	private static final String SGS_VCR = "703A6FB6180B55E158105A7D9481857A"; // 354795046635436
 	private static final String AdMobPublisherId = "a15040cbf0bde5c";
-	private static final boolean AdTest = true;
+	private static final boolean AdTest = false;
 	
 	private RelativeLayout layout;
 	private View gameView;
@@ -48,7 +49,7 @@ public class TinyGalaxy extends AndroidApplication implements IActivityRequestHa
 		this.layout = new RelativeLayout(this);
 		this.gameView = initializeForView(TinyWorld.get(this), config);
 		this.adView = new AdView(this, AdSize.BANNER, AdMobPublisherId);
-		// this.nextAdInternal();
+		this.nextAdInternal();
 		this.showAds(false);
 		
 		this.layout.addView(this.gameView);
