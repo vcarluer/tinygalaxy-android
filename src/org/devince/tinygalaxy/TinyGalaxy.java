@@ -24,6 +24,7 @@ public class TinyGalaxy extends AndroidApplication implements IActivityRequestHa
 	private static final String SGS_VCR = "703A6FB6180B55E158105A7D9481857A"; // 354795046635436
 	private static final String AdMobPublisherId = "a15040cbf0bde5c";
 	private static final boolean AdTest = false;
+	private static final boolean NoAd = false;
 	
 	private RelativeLayout layout;
 	private View gameView;
@@ -49,7 +50,9 @@ public class TinyGalaxy extends AndroidApplication implements IActivityRequestHa
 		this.layout = new RelativeLayout(this);
 		this.gameView = initializeForView(TinyWorld.get(this), config);
 		this.adView = new AdView(this, AdSize.BANNER, AdMobPublisherId);
-		this.nextAdInternal();
+		if (!NoAd) {
+			this.nextAdInternal();
+		}		
 		this.showAds(false);
 		
 		this.layout.addView(this.gameView);
